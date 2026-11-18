@@ -92,7 +92,7 @@
   "env": {
     "devnet": {
       // The rebuild's own devnet rehearsal: its own Worker, database, bucket and PlatformConfig, never the original's
-      // (`stoker-api-devnet` on api-devnet.stoker.markets belongs to imDev2023/Stoker-Markets). No custom domain until
+      // (`stoker-api-devnet` on api-devnet.stoker.markets belongs to imDev2023/stoker). No custom domain until
       // the owner names one, so it answers on workers.dev.
       "name": "kiln-api-devnet",
       "workers_dev": true,
@@ -155,7 +155,7 @@
       "r2_buckets": [{ "binding": "METADATA_BUCKET", "bucket_name": "kiln-metadata-devnet" }]
     }
     // No production environment here. Mainnet's `stoker-api` on api.stoker.markets is deployed from
-    // imDev2023/Stoker-Markets until the owner's cutover (the map, issue #1); its addresses are in that repository's
+    // imDev2023/stoker until the owner's cutover (the map, issue #1); its addresses are in that repository's
     // apps/api/wrangler.jsonc. Never recreate or delete `stoker-api` from here: its OPERATIONS_KEY can never be put again.
   }
   // Secrets, set with `wrangler secret put` and in `.dev.vars` locally: OPERATIONS_KEY, HELIUS_WEBHOOK_SECRET,

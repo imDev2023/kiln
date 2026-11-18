@@ -8,7 +8,7 @@
   "observability": { "enabled": true },
   // The rebuild's devnet rehearsal is built with NEXT_PUBLIC_API_URL set to the rebuild's own devnet API, then
   // `opennextjs-cloudflare deploy --env devnet`; it has its own API key, the secret API_KEY. The original's Workers,
-  // `stoker-web-devnet` (devnet.stoker.markets and the apex) and `stoker-web`, belong to imDev2023/Stoker-Markets.
+  // `stoker-web-devnet` (devnet.stoker.markets and the apex) and `stoker-web`, belong to imDev2023/stoker.
   "env": {
     "devnet": {
       // No custom domain until the owner names one, so it answers on workers.dev.
@@ -17,6 +17,6 @@
       "assets": { "directory": ".open-next/assets", "binding": "ASSETS" }
     }
     // No production environment until the owner's cutover (the map, issue #1): `stoker-web` is deployed from
-    // imDev2023/Stoker-Markets.
+    // imDev2023/stoker.
   }
 }

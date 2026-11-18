@@ -1,4 +1,4 @@
-// Share previews and search (#14, production's Stoker-Markets#83): every page names itself (a title, a description, one
+// Share previews and search (#14, production's stoker#83): every page names itself (a title, a description, one
 // canonical address) and carries the Open Graph and Twitter cards with a drawn image, so a link pasted on X or Telegram
 // unfurls; the site has a sitemap, a robots file and its icons; and a coin's, an asset's and a stock's links unfurl with
 // cards of their own.

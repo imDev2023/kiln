@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/meta";
 export const metadata: Metadata = pageMeta({ path: "/terms", title: "Terms of use", description: "The terms on which the Stoker site and API are offered." });
 
 /**
- * The terms the footer links to, in production's wording (imDev2023/Stoker-Markets#131). DRAFT: written from the
+ * The terms the footer links to, in production's wording (imDev2023/stoker#131). DRAFT: written from the
  * site's own facts (ADR 0003's server-built transactions, ADR 0009's fee model, the confirmed excluded regions); the
  * owner approves this text before the site opens.
  */

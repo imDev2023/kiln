@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMeta({
   description: "Coins the platform has approved and works on with their teams, bought by the people who stake STOKER.",
 });
 
-/** The spec's three steps (`curated.html`), in production's words (owner, 2026-10-25, Stoker-Markets#118). */
+/** The spec's three steps (`curated.html`), in production's words (owner, 2026-10-25, stoker#118). */
 const STEPS = [
   { title: "Stake STOKER", text: "Only a wallet that has staked can buy a Curated launch." },
   { title: "Your allocation follows your stake", text: "The more you stake, the more of each launch you can buy." },

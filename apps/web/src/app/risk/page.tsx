@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/meta";
 export const metadata: Metadata = pageMeta({ path: "/risk", title: "Risk disclosure", description: "What can go wrong with a coin launched on Stoker, in plain words." });
 
 /**
- * The risk disclosure the footer's one bold sentence leads to, in production's wording (imDev2023/Stoker-Markets#131;
+ * The risk disclosure the footer's one bold sentence leads to, in production's wording (imDev2023/stoker#131;
  * the facts are the site's own: the fee model of ADR 0009, the curve rules, the Quote Asset labels and the confirmed
  * excluded regions). DRAFT: the owner approves this text before the site opens.
  */

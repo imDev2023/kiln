@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/meta";
 export const metadata: Metadata = pageMeta({ path: "/privacy", title: "Privacy", description: "What the Stoker site and API keep about you, and what the chain keeps for everyone." });
 
 /**
- * The privacy notice the footer links to, in production's wording (imDev2023/Stoker-Markets#131). DRAFT: written from
+ * The privacy notice the footer links to, in production's wording (imDev2023/stoker#131). DRAFT: written from
  * what the site actually does (one cookie for the scheme, browser storage for the disclaimer, Cloudflare's request
  * logs, Arweave for images); the owner approves this text before the site opens.
  */
