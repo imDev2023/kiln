@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { OG_FONTS } from "./ogFonts";
 
 /**
- * What every share card is made of (#14, production's Stoker-Markets#83 drawn again in E Furnace): the size, the band's
+ * What every share card is made of (#14, production's stoker#83 drawn again in E Furnace): the size, the band's
  * ground and inks, the faces and the mark. A card is one image whatever the viewer's scheme and wherever it unfurls, so
  * it is drawn on the band, the mark's dark tile, which is the same in both schemes. `next/og` lays it out with Satori:
  * every box is a flex box, every style one Satori knows, and a text box has a set width, or its line runs off the card.

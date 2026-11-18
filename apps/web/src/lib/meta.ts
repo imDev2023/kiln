@@ -24,7 +24,7 @@ export const TWITTER_CARD = { card: "summary_large_image", site: SITE_LINKS.x.ha
 export const SITE_CARD = { url: "/opengraph-image", width: 1200, height: 630, type: "image/png", alt: "Stoker. No one picks your pair. You do." } as const;
 
 /**
- * A page's own name and address (#14, production's Stoker-Markets#83): the title the layout's template completes, the
+ * A page's own name and address (#14, production's stoker#83): the title the layout's template completes, the
  * description search results and share previews show, its canonical address (one per page, so the board's sorted and
  * filtered views and a wallet's rewards lookup all point at their page) and the same address on its Open Graph and
  * Twitter cards. Paths are relative: the layout's `metadataBase` is the origin the request came in on (src/lib/origin.ts),

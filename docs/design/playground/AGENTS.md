@@ -1,6 +1,6 @@
 # For agents
 
-- This is an experimental redesign. Never change the production repository (`imDev2023/Stoker-Markets`) from here.
+- This is an experimental redesign. Never change the production repository (`imDev2023/stoker`) from here.
 - A page is `src/pages/<name>.html`: front matter, then HTML. Shared chrome is `src/layout.html`. Never edit `dist/`; it is built.
 - Edit the HTML first, then the CSS, then the script. `src/app.js` holds one renderer per page (`pages.<name>`) and only fills elements marked `data-*`.
 - No taglines, helper text or secondary labels. If a section needs one to make sense, change its layout.

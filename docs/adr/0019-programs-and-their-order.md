@@ -19,7 +19,7 @@ Nothing in LaunchLab can hold trading back once a pool exists, and its coins tak
   2. `stoker_earnings` and the first `stoker_launch`.
      Every coin's LaunchLab creator is a PDA of the earnings program, the curve's split becomes 0.50% Platform Fee and 0.50% Creator Fee on-chain (the trader still pays 1.25%), the earnings program is the CPMM pool creator after Graduation, and permissionless claims pay half of what the platform collects to the Creator, as ADR 0009 rules, with the Graduation Fee priced at launch from the Graduation Target.
      The launch program creates the pool through CPI and registers the coin with its Creator in the same instruction.
-     The Creator's share is a setting of each coin's record that every claim reads, 50% at launch, never a constant in the program (owner, 2026-11-09), so a ladder such as the original's proposed one (imDev2023/Stoker-Markets#188) can change it later without a new program; who may change it, and when, is that ticket's ADR to propose.
+     The Creator's share is a setting of each coin's record that every claim reads, 50% at launch, never a constant in the program (owner, 2026-11-09), so a ladder such as the original's proposed one (imDev2023/stoker#188) can change it later without a new program; who may change it, and when, is that ticket's ADR to propose.
      The Creator Forward is retired for coins launched through it once it is proven on devnet and audited.
   3. PDA mints in the launch program (vanity prefixes by seed grinding, no mint keys held by the API) and supply locks on LaunchLab's own vesting.
   4. Fair Open in the launch program: a deposit window, one price for every opening buy, pro-rata settlement, refunds with no server; built only after the owner decides on the overlap with Top-pad's product.
@@ -42,5 +42,5 @@ Nothing in LaunchLab can hold trading back once a pool exists, and its coins tak
 - The repository gains a Rust workspace, a CI job and the toolchain in CLAUDE.md's Run and test section (ADR 0018).
 - ADR 0009 and ADR 0015 are amended by ticket 2's ADR; ADR 0006's custody of the Reward Tax by ticket 5's.
 - Third-party terminals will show a PDA as each new coin's creator; the coin page and the metadata name the Creator.
-- The "no custom program" line proposed for the trust page (imDev2023/Stoker-Markets#144) becomes "Raydium's audited programs plus ours, verified and audited", once that is true.
+- The "no custom program" line proposed for the trust page (imDev2023/stoker#144) becomes "Raydium's audited programs plus ours, verified and audited", once that is true.
 - Any program that holds or routes users' money waits for its audit before mainnet (ADR 0018); the owner chooses the auditor and the budget.

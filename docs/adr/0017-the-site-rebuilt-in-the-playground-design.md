@@ -6,7 +6,7 @@ Status: accepted (owner, 2026-11-04).
 
 On 2026-11-04 the owner found the production site too full of information and not minimal, and liked their own redesign in `imDev2023/Playground-for-stoker`.
 That redesign is every public page as static HTML and vanilla JS on a fixture in the API's shapes: ivory and ink with one gold accent, Instrument Serif for statements, Instrument Sans for anything read or acted on, JetBrains Mono, hairlines instead of cards, black buttons and a 1120px shell.
-The same day the owner asked for the whole website to be rebuilt from scratch in that design, in a new repository, so that the original (`imDev2023/Stoker-Markets`) stays as the fallback.
+The same day the owner asked for the whole website to be rebuilt from scratch in that design, in a new repository, so that the original (`imDev2023/stoker`) stays as the fallback.
 
 ## Decision
 

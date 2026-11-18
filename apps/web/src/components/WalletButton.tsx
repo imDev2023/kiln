@@ -28,7 +28,7 @@ export function Avatar({ address, size = 22 }: { address: string; size?: number 
 /**
  * The account control, the ghost beside the header's one filled action: "Connect wallet", or the wallet's avatar and
  * short address once connected, each opening a menu that also holds the light-or-dark toggle (production's place for
- * it since imDev2023/Stoker-Markets#131). Wallets are found through the Wallet Standard, so none is bundled.
+ * it since imDev2023/stoker#131). Wallets are found through the Wallet Standard, so none is bundled.
  */
 export function WalletButton({ block = false }: {
   /** The trade panel's own "Connect wallet": the panel's width and height, its menu opening under it, with no scheme toggle. */

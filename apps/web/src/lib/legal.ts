@@ -1,5 +1,5 @@
 /**
- * The site's legal words in one place (imDev2023/Stoker-Markets#156, carried by ADR 0017): the welcome on a first
+ * The site's legal words in one place (imDev2023/stoker#156, carried by ADR 0017): the welcome on a first
  * visit, the footer's risk sentence and the legal pages read the same strings, so the excluded regions (confirmed by
  * the owner) and the risk sentence are changed once.
  */

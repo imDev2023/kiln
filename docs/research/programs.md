@@ -13,7 +13,7 @@ The owner accepted that ADR on 2026-11-09 (section 11 has the answers), and its 
     Every coin's LaunchLab `creator` becomes an address our program owns, the curve's split moves from 1.00% and 0% to 0.50% and 0.50% on-chain (the trader still pays 1.25%), the program also becomes the CPMM pool creator after Graduation, and anyone can make it claim and pay: half to the Creator, half to the platform, exactly ADR 0009's rule.
     It retires the Creator Forward job once proven.
   - **Launch** (`stoker_launch`): the launch transaction's creation through our program, so the coin is registered with its Creator and its Earnings destination in the same instruction, and, next, the mint becomes an address our program derives (vanity prefixes ground for free, no mint keys held by the API), with supply locks on LaunchLab's own vesting.
-- Then, in order: **Fair Open** in the launch program (a deposit window and one price for every opening buy, so nobody can buy before the crowd, the platform included), **Rewards** (the Reward Tax and the Holders and Burn destinations held and paid by a program), and **Staking** for Curated launches once the Platform Token trades and the owner has answered #118's questions (imDev2023/Stoker-Markets#118).
+- Then, in order: **Fair Open** in the launch program (a deposit window and one price for every opening buy, so nobody can buy before the crowd, the platform included), **Rewards** (the Reward Tax and the Holders and Burn destinations held and paid by a program), and **Staking** for Curated launches once the Platform Token trades and the owner has answered #118's questions (imDev2023/stoker#118).
 - Not programs: supply locks and vesting (LaunchLab has them; only our curve rules need to allow them), the 1 trillion supply (a curve-rule change, to prove at LaunchLab's maths), and vanity mints as a key pool (the launch program makes them a seed grind instead).
 - Every program follows ADR 0018's safeguards: its own ADR, tests on the real Raydium programs, a verified build, a Squads multisig upgrade authority, a devnet demo through the site, and an audit before it decides where users' money goes on mainnet.
 
@@ -114,7 +114,7 @@ That is also the pitch Peak cannot make: its creator share is claimed, unstated 
 4. Optionally makes the First Buy for the Creator in the same instruction, so the First Buy stays atomic (ADR 0003's launch transaction, CONTEXT.md "First Buy").
 5. Optionally hands a vesting share to the Creator (LaunchLab's `create_vesting_account`, signed by the earnings PDA as the pool's creator).
 
-### PDA mints and vanity addresses (imDev2023/Stoker-Markets#73)
+### PDA mints and vanity addresses (imDev2023/stoker#73)
 
 - A PDA mint is `find_program_address(["mint", seed], launch_program)`, where the seed is any bytes we choose.
   Nobody holds a key for it, so the API's `MINT_KEY_SECRET` and the planned encrypted pool of vanity keys both disappear: a retry rebuilds the same address from the same seed, and nobody but our program can ever create that mint.
@@ -123,17 +123,17 @@ That is also the pitch Peak cannot make: its creator share is claimed, unstated 
   That rate is an estimate to measure in the spike, not a finding.
 - Ground seeds are not secrets: they can be ground once, kept in a table, even published.
   The one risk is griefing: anyone who knows the next mint address could send it lamports before the launch, and whether LaunchLab's mint creation tolerates a pre-funded account is to prove.
-- Earlier coins keep their derived addresses, as the owner decided on imDev2023/Stoker-Markets#73 (2026-10-06), and vanity mints still wait for mainnet's launch by that decision.
+- Earlier coins keep their derived addresses, as the owner decided on imDev2023/stoker#73 (2026-10-06), and vanity mints still wait for mainnet's launch by that decision.
 
-### Supply locks and vesting (imDev2023/Stoker-Markets#141)
+### Supply locks and vesting (imDev2023/stoker#141)
 
 - No program needed: LaunchLab's vesting reserves the locked supply at creation and releases it after Graduation plus the cliff.
   Our curve rules widen from `TotalLockedAmount = 0` to a band, and the launch form offers it.
 - What it is not: a lock of coins the Creator bought (the First Buy).
   Locking bought coins needs an escrow; Jupiter Lock's `create_vesting_escrow_v2` composed into the launch (as Top-pad's Fair Open does) is the existing audited one, and our program can make that call so the lock is part of the launch.
-- The owner's anti-sniper line (imDev2023/Stoker-Markets#120, 2026-10-26: the atomic First Buy, Creator vesting and labels-only Bundle Radar, never a tax) is met by these two.
+- The owner's anti-sniper line (imDev2023/stoker#120, 2026-10-26: the atomic First Buy, Creator vesting and labels-only Bundle Radar, never a tax) is met by these two.
 
-### The 1 trillion supply (imDev2023/Stoker-Markets#166)
+### The 1 trillion supply (imDev2023/stoker#166)
 
 The owner decided it on 2026-11-02.
 It is a launch-shape change through the curve rules (about 1,170 rule writes on mainnet), not a program, and it touches every coin figure on the site.
@@ -179,7 +179,7 @@ The conservative default is the cap alone, with admission left to the owner.
 
 ## 5. The Earnings destination and holder rewards as a program
 
-### The destinations (imDev2023/Stoker-Markets#113)
+### The destinations (imDev2023/stoker#113)
 
 The Creator picks at launch, never to change (owner, 2026-10-25): their wallet, a dividend to holders, or buyback and burn, which buys on the curve too (owner, 2026-10-25, "like Pons").
 The earnings program stores the destination on the coin record (section 2) and pays `wallet` itself; `holders` and `burn` go through the Rewards program:
@@ -197,7 +197,7 @@ The earnings program stores the destination on the coin record (section 2) and p
 - **Paying a round.**
   A program cannot see every holder's balance at a moment, so the snapshot stays off-chain: the Reward Engine computes it as today and posts the round's Merkle root with its total.
   The root waits a challenge period (a day, like the rules' lead time) during which anyone can recompute it from the chain; then `pay(round, leaf, proof)`, permissionless, pays each holder from the vault, so holders still receive without claiming, and the program refuses any payment the root does not hold or that would exceed the round's total.
-  The alternative that needs no snapshot is staking (holders deposit coins and a per-share accumulator pays them), which is fully on-chain but asks every holder to act; imDev2023/Stoker-Markets#113 proposes "no staking ... holders are paid by balance", so the Merkle design follows it.
+  The alternative that needs no snapshot is staking (holders deposit coins and a per-share accumulator pays them), which is fully on-chain but asks every holder to act; imDev2023/stoker#113 proposes "no staking ... holders are paid by balance", so the Merkle design follows it.
 - **A Quote Asset Payout (#43).**
   The Reward Sales stay as ADR 0006 bounds them, made by the program from the vault instead of the operations wallet.
 
@@ -207,7 +207,7 @@ The earnings program stores the destination on the coin record (section 2) and p
 - A posted root can still be wrong; the challenge period, the published snapshot and the round's total cap bound the damage, but this is accountable, not trustless, and the note says so.
 - More transactions than today's batched payouts: one leaf per holder per round, the same count as now.
 
-## 6. Curated launches bought by STOKER stakers (imDev2023/Stoker-Markets#118)
+## 6. Curated launches bought by STOKER stakers (imDev2023/stoker#118)
 
 The owner (2026-10-25): only people who stake STOKER can buy a Curated launch, with an allocation in proportion to their stake.
 The issue's five questions are all open: what "stake" means, how the allocation is enforced, the formula, what "approved" means and where the revenue goes.
@@ -289,16 +289,16 @@ Lane `programs` runs them in order, each blocked by the one before, except that 
    Its outcome decides whether ticket 2 is built as written.
 2. **The earnings program and the launch through it** (#41).
    `stoker_earnings` (coin records, `claim_curve`, `collect_pool`, the split, the wallet destination, the Graduation Fee priced at launch, events) and the first `stoker_launch` (creation through CPI with the earnings PDA as creator, registration, the First Buy), the API's launch and the Indexer moved to them, the backend suite proving a Creator paid on the curve and after Graduation with no forward job, and its own ADR amending ADR 0009 and ADR 0015.
-   The Creator's share is a setting of each coin's record, 50% at launch, never a constant (owner, 2026-11-09), so imDev2023/Stoker-Markets#188's Creator ladder can come later without a new program.
+   The Creator's share is a setting of each coin's record, 50% at launch, never a constant (owner, 2026-11-09), so imDev2023/stoker#188's Creator ladder can come later without a new program.
    The Creator Forward keeps running for coins launched before, and the fee change on mainnet's PlatformConfig waits for the audit and the owner.
 3. **PDA mints, vanity seeds and supply locks** (#42).
-   The launch program derives mints from seeds, the API drops `MINT_KEY_SECRET` for new coins, a seed grinder and its table (vanity prefixes after go-live, by the owner's decision on imDev2023/Stoker-Markets#73), and LaunchLab vesting allowed by the curve rules with the form's lock option (imDev2023/Stoker-Markets#141).
+   The launch program derives mints from seeds, the API drops `MINT_KEY_SECRET` for new coins, a seed grinder and its table (vanity prefixes after go-live, by the owner's decision on imDev2023/stoker#73), and LaunchLab vesting allowed by the curve rules with the form's lock option (imDev2023/stoker#141).
 4. **Fair Open** (#43).
    A launch mode with a deposit window, one-price opening buy, pro-rata settlement and the failure path, after the owner decides on the overlap with Top-pad.
 5. **Rewards** (#44).
-   The Reward Tax authority on a PDA, `lock_tax` and `harvest`, Merkle rounds with a challenge period and permissionless payment, the Holders and Burn destinations of imDev2023/Stoker-Markets#113, and the retirement of the `reward-tax-lock` job and the operations wallet's custody of the tax.
+   The Reward Tax authority on a PDA, `lock_tax` and `harvest`, Merkle rounds with a challenge period and permissionless payment, the Holders and Burn destinations of imDev2023/stoker#113, and the retirement of the `reward-tax-lock` job and the operations wallet's custody of the tax.
 6. **Staking and Curated** (#45).
-   After go-live and the owner's answers on imDev2023/Stoker-Markets#118.
+   After go-live and the owner's answers on imDev2023/stoker#118.
 
 Not proposed: a curve or migration of our own, a move to Meteora DBC, a vesting program, a transfer-hook coin.
 
@@ -309,7 +309,7 @@ The owner accepted ADR 0019 as proposed on 2026-11-09; each question below keeps
 1. The two first programs and the order above: accepted.
 2. The audit: the earnings program decides where Creators' money goes, so it is audited before mainnet under ADR 0018's rule; the auditor and the budget are still the owner's to choose.
 3. The curve split on-chain (0.50% Platform Fee, 0.50% Creator Fee): yes, through an announced fee change on mainnet's PlatformConfig once ticket 2 is proven and audited, applied by the cold admin key on the owner's go.
-   The owner added that the Creator's share is a per-coin setting, never a constant, so the Creator ladder the original proposed the same day (imDev2023/Stoker-Markets#188: 50% on the curve, 60% after Graduation, 70% for coins that last) can come later without a new program.
+   The owner added that the Creator's share is a per-coin setting, never a constant, so the Creator ladder the original proposed the same day (imDev2023/stoker#188: 50% on the curve, 60% after Graduation, 70% for coins that last) can come later without a new program.
 4. The Graduation Fee is priced at launch from the Graduation Target.
 5. Fair Open given Heat (Top-pad's ADR 0001, option C): still open; #43 waits for it and the relay skips that ticket meanwhile.
 6. Holder rewards by Merkle root with a challenge period.
@@ -318,7 +318,7 @@ The owner accepted ADR 0019 as proposed on 2026-11-09; each question below keeps
 
 - LaunchLab, CPMM and lock IDLs: `packages/chain/idl/` (the devnet builds, identical to mainnet's but for `collect_excess_lamports`).
 - `spike/launchlab-devnet/README.md`, `research/onchain/README.md`, `research/competitors/README.md`, ADRs 0003 to 0006, 0009, 0012, 0013, 0015 and 0018.
-- imDev2023/Stoker-Markets#73, #113, #118, #120, #141, #144 and #166, read only.
+- imDev2023/stoker#73, #113, #118, #120, #141, #144 and #166, read only.
 - `/Volumes/Farhan/Work Folder/Dev/AI/Top-pad`: `programs/fee`, `programs/fair_open`, its ADRs 0001 to 0006, its CLAUDE.md and CI, read only.
 - The owner's Jupiter and Meteora knowledge base, `meteora/03-dev-dbc-vaults-launch.md`, for Meteora DBC.
 - No web search or paid service was used.

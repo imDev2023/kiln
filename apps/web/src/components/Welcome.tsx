@@ -5,7 +5,7 @@ import { acceptDisclaimer, hasAcceptedDisclaimer, WELCOME } from "@/lib/legal";
 import styles from "./Welcome.module.css";
 
 /**
- * The welcome on a visitor's first visit (owner, 2026-10-30, imDev2023/Stoker-Markets#156; kept by ADR 0017): the open
+ * The welcome on a visitor's first visit (owner, 2026-10-30, imDev2023/stoker#156; kept by ADR 0017): the open
  * half of the pitch, one risk sentence, the excluded regions and one button, over the page as a modal dialog, a sheet
  * from the foot of a phone. It mounts closed and opens after hydration, so the server render and the first paint are
  * the same with or without it. Accepted once per browser on the disclaimer's own key; it blocks nothing (owner's rule:
