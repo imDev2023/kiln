@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  "name": "new-stoker-api",
+  "name": "kiln-api",
   "main": "src/index.ts",
   "compatibility_date": "2026-09-20",
   "compatibility_flags": ["nodejs_compat"],
@@ -94,7 +94,7 @@
       // The rebuild's own devnet rehearsal: its own Worker, database, bucket and PlatformConfig, never the original's
       // (`stoker-api-devnet` on api-devnet.stoker.markets belongs to imDev2023/Stoker-Markets). No custom domain until
       // the owner names one, so it answers on workers.dev.
-      "name": "new-stoker-api-devnet",
+      "name": "kiln-api-devnet",
       "workers_dev": true,
       "vars": {
         "CLUSTER": "devnet",
@@ -152,7 +152,7 @@
       // The rebuild's own devnet database (Hyperdrive id to come); the original's (2efc4f...) is the original's
       // database, whose migrations differ.
       "hyperdrive": [{ "binding": "HYPERDRIVE", "id": "00000000000000000000000000000000" }],
-      "r2_buckets": [{ "binding": "METADATA_BUCKET", "bucket_name": "new-stoker-metadata-devnet" }]
+      "r2_buckets": [{ "binding": "METADATA_BUCKET", "bucket_name": "kiln-metadata-devnet" }]
     }
     // No production environment here. Mainnet's `stoker-api` on api.stoker.markets is deployed from
     // imDev2023/Stoker-Markets until the owner's cutover (the map, issue #1); its addresses are in that repository's
