@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  "name": "new-stoker-web",
+  "name": "kiln-web",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-09-20",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -12,7 +12,7 @@
   "env": {
     "devnet": {
       // No custom domain until the owner names one, so it answers on workers.dev.
-      "name": "new-stoker-web-devnet",
+      "name": "kiln-web-devnet",
       "workers_dev": true,
       "assets": { "directory": ".open-next/assets", "binding": "ASSETS" }
     }

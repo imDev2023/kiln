@@ -10,7 +10,7 @@ Issues and PRDs for this repo live as GitHub issues. Use the `gh` CLI for all op
 - **Comment on an issue**: `gh issue comment <number> --body "..."`
 - **Apply / remove labels**: `gh issue edit <number> --add-label "..."` / `--remove-label "..."`
 - **Close**: `gh issue close <number> --comment "..."` (on a ticket, post the closing record with `gh issue comment` first: a closed ticket drops the comment of `close --comment`).
-- **Make an issue a sub-issue of a parent**: `gh issue create --parent <parent> ...`, or `gh issue edit <parent> --add-sub-issue <child>` afterwards (`gh` 2.94+); older `gh`: `gh api --method POST repos/imDev2023/new-stoker/issues/<parent>/sub_issues -F sub_issue_id=<child-db-id>` (the database id, as in **Blocking** below).
+- **Make an issue a sub-issue of a parent**: `gh issue create --parent <parent> ...`, or `gh issue edit <parent> --add-sub-issue <child>` afterwards (`gh` 2.94+); older `gh`: `gh api --method POST repos/imDev2023/kiln/issues/<parent>/sub_issues -F sub_issue_id=<child-db-id>` (the database id, as in **Blocking** below).
 
 Infer the repo from `git remote -v` - `gh` does this automatically when run inside a clone.
 
@@ -46,7 +46,7 @@ Every Multica write passes `--no-start`, new tickets are assigned to `Farren Ell
 The **map** is issue #1 (label `wayfinder:map`) and the build tickets (label `build`) are its sub-issues, as in the owner's Top-pad.
 
 - **Blocking**: GitHub's native issue dependencies, the canonical and UI-visible representation.
-  Add an edge with `gh api --method POST repos/imDev2023/new-stoker/issues/<child>/dependencies/blocked_by -F issue_id=<blocker-db-id>`, where `<blocker-db-id>` is the blocker's numeric database id (`gh api repos/imDev2023/new-stoker/issues/<n> --jq .id`, not the `#number` or the `node_id`).
+  Add an edge with `gh api --method POST repos/imDev2023/kiln/issues/<child>/dependencies/blocked_by -F issue_id=<blocker-db-id>`, where `<blocker-db-id>` is the blocker's numeric database id (`gh api repos/imDev2023/kiln/issues/<n> --jq .id`, not the `#number` or the `node_id`).
   GitHub reports `issue_dependencies_summary.blocked_by` (open blockers only, the live gate); each ticket also carries a `## Blocked by` section naming them, for reading.
   A ticket is unblocked when every blocker is closed.
 - **Frontier**: the map's open sub-issues with no open blocker and no assignee, in the order of the map's `## Next`.

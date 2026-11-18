@@ -268,7 +268,7 @@ It stays a separate product (its ADR 0001), and nothing below is copied in witho
   - The existing black-box backend suite on the local chain: `tools/localnet` loads our programs at their ids as it loads Raydium's, and the API's flows are proven through HTTP as now.
 - **CI:** a `programs` job (fmt, clippy with warnings as errors, the build, the IDL diff, `cargo test`), beside `check` and `backend`; the backend job builds the programs first or downloads the job's artifact.
 - **Verified builds:** `solana-verify build` in a clean clone and `solana-verify verify-from-repo` after each deploy, recorded on-chain (installed here: 0.4.9; Top-pad used 0.5.2).
-- **Keys:** each program's keypair (its address) lives outside the repo, under `~/.config/new-stoker/` on the owner's Mac (never `~/.config/stoker/`, which belongs to the original), like the platform's keys.
+- **Keys:** each program's keypair (its address) lives outside the repo, under `~/.config/kiln/` on the owner's Mac (never `~/.config/stoker/`, which belongs to the original), like the platform's keys.
 - **Upgrade authority:** a file key on devnet; on mainnet a Squads multisig with a timelock (Top-pad plans 7 days), held like the platform's cold keys (ADR 0004).
   Each program's config is changed by its upgrade authority (read from `ProgramData`, Top-pad's pattern), so there is one cold key per program and no hot admin.
   The earnings program, named forever by every pool, is a candidate for immutability once stable.

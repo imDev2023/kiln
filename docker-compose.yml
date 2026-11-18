@@ -2,7 +2,7 @@
 services:
   postgres:
     image: postgres:17-alpine
-    container_name: new-stoker-postgres
+    container_name: kiln-postgres
     environment:
       POSTGRES_USER: launchpad
       POSTGRES_PASSWORD: launchpad
@@ -10,6 +10,6 @@ services:
     ports:
       - "127.0.0.1:5462:5432"
     volumes:
-      - new-stoker-postgres:/var/lib/postgresql/data
+      - kiln-postgres:/var/lib/postgresql/data
 volumes:
-  new-stoker-postgres:
+  kiln-postgres:
